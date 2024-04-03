@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -53,7 +52,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun CourseArticles(){
+fun CourseArticles() {
     ArticleCard(
         title = stringResource(R.string.title),
         shortDescription = stringResource(R.string.short_decription),
@@ -73,8 +72,16 @@ fun ArticleCard(
     Column(modifier = modifier.verticalScroll(rememberScrollState())) {
         Image(painter = imageBanner, contentDescription = "ImageBanner")
         Text(text = title, modifier = Modifier.padding(16.dp), fontSize = 24.sp)
-        Text(text = shortDescription, modifier = Modifier.padding(16.dp), textAlign = TextAlign.Justify)
-        Text(text = longDescription, modifier = Modifier.padding(16.dp), textAlign = TextAlign.Justify)
+        Text(
+            text = shortDescription,
+            modifier = Modifier.padding(16.dp),
+            textAlign = TextAlign.Justify
+        )
+        Text(
+            text = longDescription,
+            modifier = Modifier.padding(16.dp),
+            textAlign = TextAlign.Justify
+        )
     }
 }
 
@@ -88,7 +95,10 @@ fun TaskCompletedScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Image(painter = painterResource(R.drawable.ic_task_completed), contentDescription = "Task_completed")
+        Image(
+            painter = painterResource(R.drawable.ic_task_completed),
+            contentDescription = "Task_completed"
+        )
         Text(
             text = stringResource(R.string.task_title),
             modifier = Modifier.padding(top = 24.dp, bottom = 8.dp),
@@ -155,10 +165,10 @@ fun ComposableInfoCard(
 
 @Preview(showBackground = true)
 @Composable
-fun ComposeCoursePreview(){
-    ComposeCourseTheme{
+fun ComposeCoursePreview() {
+    ComposeCourseTheme {
         CourseArticles()
 //        TaskCompletedScreen()
 //        ComposeQuandrantApp()
-        }
+    }
 }
